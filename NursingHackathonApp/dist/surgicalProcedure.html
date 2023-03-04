@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ortho App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<style>
+		/* Custom styles for small screens */
+		@media (max-width: 767px) {
+			.container {
+				width: 100% !important;
+				max-width: none !important;
+			}
+		}
+		#canvas {
+			width: 100%;
+			height: 400px;
+		}
+	</style>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+    <div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="text-center">Surgical Procedure</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<button type="button" class="btn btn-primary btn-block">Button 1</button>
+        <h1>About Hip Replacement Surgery</h1>
+        <h2>Why do I need a hip replacement?</h2>
+        <p> Most people have a hip replacement because the cartilage (or cushioning) between the bones in their hip has worn away. This causes the bones to rub against each other, which then causes pain and stiffness in the hip.
+
+          The pain might be keeping you awake at night. It may be causing you to cut back or stop doing your normal, everyday activities. You may have tried other treatments like medicine and exercise, but the pain and stiffness didn't get better or got worse.
+          
+          A hip replacement means that the damaged hip joint is taken out and replaced with parts made of metal, plastic and metal, or ceramic and metal. The pain should stop or be much less.
+          </p>
+        <h2>What types of hip replacement surgery are there?</h2>
+        <p>There are 3 types of hip replacement surgery. Your surgeon will tell you which type you need.
+          1.	Total hip replacement: The entire hip joint is taken out and replaced with new parts. The type of approach will be determined by your surgeon.
+          2.	Hip resurfacing: Only the damaged surfaces in the hip joint are taken out and replaced with new parts.
+          3.	Hip revision: The parts used to replace the hip have become damaged or loose and have to be taken out and replaced with new ones.
+          
+          There are many types of hip replacement parts. The type you need depends on the condition of your hip, your age, weight, and the activities you like to do. Your surgeon will speak with you about the type that's best for you.
+          </p>
+
+       
+        <img src="hip1.PNG" alt="hips dont lie">
+        <img src="hip2.PNG" alt="hips dont lie">
+        <img src="hip3.PNG" alt="hips dont lie">
+
+        <h2>Does the surgery have risks?</h2>
+        <p>
+                    While hip replacements are usually safe, there are some risks. Your surgeon and healthcare team will talk to you about the risks. Some of the risks of surgery and what's done to decrease them are listed below:
+          •	Infection: Germs can enter your body from anywhere (e.g., teeth, skin, or throat) and cause an infection. Certain medical conditions and lifestyle choices can put you at a greater risk of surgical infections. Antibiotics are given before and after surgery to prevent infection. Make sure to tell your surgeon or case manager if you have or think you have an infection.
+          •	Blood clots: A blood clot happens when blood collects into a clump and can be very serious if it moves to the lungs. You'll be given a blood thinner to help prevent a blood clot. In addition to taking your blood thinners, getting up and moving around as soon as possible after surgery can help prevent a blood clot.
+          Make sure you tell your surgeon or case manager if you've ever had a blood clot.
+
+          •	Heart attack, breathing or lung problems, stroke, allergic reaction to medicine, or death: These are risks with any surgery. You and your healthcare team will work together to lower your risk.
+          •	Dislocation: This is when the ball of the new hip joint pops out of the socket. You can help prevent this by following the steps in this guide and using your equipment and aids until your healthcare team says you don't need them anymore.
+          •	Your operated leg may be longer after surgery: If this happens, it's usually only a small increase and doesn't need to be treated. A shoe lift can help if you need it.
+          •	A break in the bone around your new joint: You may need to put less weight on the leg or have another surgery.
+          •	Nerve damage, bleeding, or injury to a blood vessel: You may notice a loss of feeling or movement after surgery. Be sure to tell your healthcare team about any changes.
+          •	The new hip parts become loose: Your new hip joint may become loose over time. It's important to go to all your follow-up clinic visits after surgery. Make sure you tell your doctor if you have any new pain in your hip. You may need surgery again if your hip joint becomes too loose.
+
+        </p>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="canvas"></div>
+			</div>
+		</div>
+	</div>
+    <script>
+        var scene = new THREE.Scene();
+
+        var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+        //camera.position.z = 1000;
+        camera.position.set(-1.7486899679873675, -350.58797608346066, 74.81423443570125);
+        camera.rotation.set(-1.360553358271948, 0.004878007178796077, -0.022854823288872648);
+
+        // var renderer = new THREE.WebGLRenderer();
+        // renderer.setSize( window.innerWidth, window.innerHeight );
+        // document.body.appendChild( renderer.domElement );
+        // Create a renderer
+		var renderer = new THREE.WebGLRenderer({antialias: true});
+		renderer.setSize(window.innerWidth, 400);
+		document.getElementById('canvas').appendChild(renderer.domElement);
+
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.enableZoom = true;
+
+        var keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+        keyLight.position.set(-100, 0, 100);
+
+        var fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+        fillLight.position.set(100, 0, 100);
+
+        var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+        backLight.position.set(100, 0, -100).normalize();
+
+        scene.add(keyLight);
+        scene.add(fillLight);
+        scene.add(backLight);
+       
+
+        // var mtlLoader = new THREE.MTLLoader();
+        // mtlLoader.setTexturePath('/examples/3d-obj-loader/assets/');
+        // mtlLoader.setPath('/examples/3d-obj-loader/assets/');
+        // mtlLoader.load('r2-d2.mtl', function (materials) {
+
+            // materials.preload();
+
+            var objLoader = new THREE.OBJLoader();
+            // objLoader.setMaterials(materials);
+            //objLoader.setPath('/examples/3d-obj-loader/assets/');
+            
+            // objLoader.load('ortho.obj', function (object) {
+            objLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill_2/windmill.obj', function (object) {
+
+                scene.add(object);
+                object.position.y -= 60;
+
+            });
+
+        // });
+
+        var animate = function () {
+            requestAnimationFrame( animate );
+            controls.update();
+            renderer.render(scene, camera);
+            // console.log("Position", camera.position)
+            // console.log("Rotation", camera.rotation)
+        };
+
+        animate();
+         
+        
+        //console.log("World Direction", camera.getWorldDirection())
+    </script>
+  </body>
+</html>
