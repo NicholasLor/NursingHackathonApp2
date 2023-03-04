@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #2c3939;
+    background-color: #fff;
+    height: 100%;
+  }
+    
+  h1 {
+    color: #374b5e;
+    text-align: center;
+  }
+
+  h2 {
+    color: #000000;
+  }
+  
+  #text-box {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+
+  #text-block {
+    line-height: 0.5;
+    padding: 30px;
+    text-align: center;
+  }
+
+  #checklist {
+    padding-left: 100px;
+    line-height: 2;
+  }
+
+  #checklist2 {
+    padding-left: 100px;
+    line-height: 2;
+  }
+
+  
