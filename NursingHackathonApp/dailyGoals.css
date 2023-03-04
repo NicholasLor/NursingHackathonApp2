@@ -20,7 +20,7 @@ body {
     margin: 0;
   }
   
-  /* Form */
+ 
   form {
     display: flex;
   }
@@ -28,7 +28,7 @@ body {
   input[type="text"] {
     padding: 8px;
     font-size: 16px;
-    border: none;
+    border: 1px solid black; 
     border-radius: 4px 0 0 4px;
   }
   
@@ -37,7 +37,7 @@ body {
     font-size: 16px;
     background-color: #0096c7;
     color: #fff;
-    border: none;
+    border: 1px solid black; 
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -47,7 +47,14 @@ body {
     background-color: #0077b6;
   }
   
-  /* Goal Box */
+  .goal-enter {
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
   .goal-box {
     margin: 40px auto;
     max-width: 600px;
