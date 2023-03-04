@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daily Goals for Hospital Patients</title>
+    <link rel="stylesheet" href="dailyGoals.css">
+  </head>
+  <body>
+    <header>
+      <h1>Daily Goals</h1>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='menu.html'">Menu</button>
+      <form>
+        <input type="text" id="new-goal" placeholder="Enter a new daily goal">
+        <button type="submit">Add Goal</button>
+      </form>
+    </header>
+    
+    <div class="goal-box">
+      <h2>My Daily Goals</h2>
+      <ul id="user-goals">
+        <!-- Goals will be added here -->
+      </ul>
+    </div>
+
+    <script src="dailyGoals.js"></script>
+  </body>
+</html>
