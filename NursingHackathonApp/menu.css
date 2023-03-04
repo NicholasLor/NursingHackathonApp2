@@ -6,7 +6,7 @@ html, body {
   }
   
   header {
-    background-color: #66b3ff;
+    background-color: #74a7f4;
     color: white;
     text-align: center;
     padding: 20px;
@@ -26,13 +26,13 @@ html, body {
   }
   
   button {
-    background-color: #bed8f3;
-    border: none;
+    background-color: #aecfe5;
+    border: 1px solid black; /* add border */
     color: rgb(0, 0, 0);
     padding: 20px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 10px;
     border-radius: 20px;
     transition: background-color 0.3s ease-in-out;
@@ -40,10 +40,31 @@ html, body {
   }
   
   button:hover {
-    background-color: #3385ff;
+    background-color: #74a7f4;
   }
   
   h1 {
     color: #66b3ff;
     text-align: center;
+    font-size: 30px;
+  }
+
+  .sign-out {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #66b3ff;
+    border: 1px solid #000;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sign-out:hover {
+    background-color: #3385ff;
   }
